@@ -1,0 +1,22 @@
+body { font-size: 150%; }
+
+p { margin: 0; }
+
+a {
+  color: black;
+  display: block;
+  text-decoration: none;
+}
+
+i {
+  font-size: 1.6em;
+  padding: 0 .2em;
+}
+
+.alarm-status-text { font-size: 2em; }
+
+.alarm-state-on { background-color: red; }
+
+.alarm-state-off { background-color: green; }
+
+.alarm-state-unknown { background-color: white; }
