@@ -17,7 +17,7 @@
 (function updateAlarmStatusClosure() {
   var alarm_status_api_url = 'api_current_status.php';
   var title_field = 'short_title';
-  var interval = 5*1000;
+  var interval = 5*60*1000;
 
   function updateTitle(as) { document.title = as.short_title + " — Rotary Pub"; }
 
