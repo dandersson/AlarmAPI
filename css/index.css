@@ -8,11 +8,6 @@ a {
   text-decoration: none;
 }
 
-i {
-  font-size: 1.6em;
-  padding: 0 .2em;
-}
-
 .alarm-status-text { font-size: 2em; }
 
 .alarm-state-on { background-color: red; }
@@ -20,3 +15,8 @@ i {
 .alarm-state-off { background-color: green; }
 
 .alarm-state-unknown { background-color: white; }
+
+.alarm-status-container i {
+  font-size: 1.6em;
+  padding: 0 .2em;
+}
