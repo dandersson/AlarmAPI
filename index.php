@@ -3,6 +3,7 @@
 <title>Fetching alarm state… — Rotary Pub</title>
 <link rel="stylesheet" href="css/index.min.css">
 <link rel="stylesheet" href="/vendor/css/font-awesome-4.3.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body id="alarm-status-container">
 
