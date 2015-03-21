@@ -6,27 +6,6 @@ namespace AlarmAPI;
  */
 class API
 {
-    const HTTP_STATUS_CODES_CONFIG = 'config/http_status_codes.ini.php';
-
-    // Store semi-static lookup table (set on first access) of HTTP status
-    // codes defined in an external configuration file.
-    public static $http_status_codes = null;
-    public static function http_status_codes()
-    {
-        if (self::$http_status_codes === null) {
-            self::$http_status_codes = parse_ini_file(self::HTTP_STATUS_CODES_CONFIG);
-        }
-        return self::$http_status_codes;
-    }
-
-    /**
-     * Utility function to get corresponding textual representation of an HTTP status code.
-     */
-    function getStatusCodeMessage($status)
-    {
-        return isset(self::$http_status_codes[$status]) ? self::$http_status_codes[$status] : '';
-    }
-
     /**
      * Send response as a serialized JSON object.
      *
@@ -73,8 +52,7 @@ class API
         $status = $response['status'];
         $response['success'] = ($response['status'] == 200);
 
-        $status_header = 'HTTP/1.1 ' . $status . ' ' . self::getStatusCodeMessage($status);
-        header($status_header);
+        http_response_code($status);
         header('Content-type: application/json');
         echo JSON_encode($response);
     }
