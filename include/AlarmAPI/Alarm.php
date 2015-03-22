@@ -50,14 +50,16 @@ class Alarm
      */
     public function getCurrentStatus($fields = [])
     {
-        $query = '
+        $table = $this->db->db_table_name['alarm_log'];
+        $alarm_status = $this->db->alarm_state;
+        $query = "
             SELECT
-                `status`,
-                DATE_FORMAT(`date`, "%W %Y-%m-%d %H:%i")
-            FROM `larmlog`
-            ORDER BY `date` DESC
+                {$alarm_status['state']},
+                DATE_FORMAT({$alarm_status['time']}, '%W %Y-%m-%d %H:%i')
+            FROM $table
+            ORDER BY {$alarm_status['time']} DESC
             LIMIT 1
-        ';
+        ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_result($state, $time);
         $stmt->execute();

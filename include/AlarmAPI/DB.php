@@ -7,6 +7,7 @@ namespace AlarmAPI;
 class DB extends \mysqli
 {
     const DB_CONFIG = 'config/db.ini.php';
+    const DBTABLES_CONFIG = 'config/dbtables.ini.php';
 
     protected static $instance;
 
@@ -17,6 +18,7 @@ class DB extends \mysqli
     public function __construct()
     {
         $dbconfig = parse_ini_file(self::DB_CONFIG);
+        $dbtconfig = parse_ini_file(self::DBTABLES_CONFIG);
 
         @parent::__construct(
             $dbconfig['host'],
@@ -30,6 +32,9 @@ class DB extends \mysqli
         }
 
         $this->set_charset($dbconfig['charset']);
+
+        $this->db_table_name = $dbtconfig['db_table_name'];
+        $this->alarm_state = $dbtconfig['alarm_log'];
     }
 
     /**
