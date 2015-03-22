@@ -1,2 +1,3 @@
 ^config/db.ini.php$
 .*\.min\.(css|js)$
+^vendor$
